@@ -62,10 +62,9 @@ I built this as part of a frontend assignment to demonstrate how I structure rea
 ## 🚀 Running Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/taskflow-prince-kumar
-cd taskflow-prince-kumar
+git clone https://github.com/prince0886/Task-Flow.git
+cd Task-Flow
 npm install
-npx msw init public/ --save
 npm run dev
 ```
 
