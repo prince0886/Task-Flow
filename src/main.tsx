@@ -11,7 +11,7 @@ async function enableMocking() {
   return worker.start({
     onUnhandledRequest: 'bypass',
     serviceWorker: {
-      url: import.meta.env.PROD ? '/Task-Flow/mockServiceWorker.js' : '/mockServiceWorker.js'
+      url: '/mockServiceWorker.js' // Loads from domain root correctly on Vercel/Netlify
     }
   })
 }
