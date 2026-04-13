@@ -7,12 +7,13 @@ import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 async function enableMocking() {
-  if (process.env.NODE_ENV === 'development') {
-    const { worker } = await import('./mocks/browser')
-    return worker.start({
-      onUnhandledRequest: 'bypass',
-    })
-  }
+  const { worker } = await import('./mocks/browser')
+  return worker.start({
+    onUnhandledRequest: 'bypass',
+    serviceWorker: {
+      url: import.meta.env.PROD ? '/Task-Flow/mockServiceWorker.js' : '/mockServiceWorker.js'
+    }
+  })
 }
 
 const queryClient = new QueryClient({
